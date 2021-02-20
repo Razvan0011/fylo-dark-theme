@@ -51,9 +51,17 @@ nav {
 }
 #nav-list {
     list-style: none;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+}
+#nav-list li {
     text-align: center;
+}
+#nav-list a:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }
 a {
     text-decoration: none;
@@ -95,8 +103,11 @@ a {
     font-weight: 700;
     background: linear-gradient(90deg, var(--cyan), var(--blue));
     border-radius: 50px;
+    font-family: 'Open Sans', sans-serif;
 }
-
+.btn:hover {
+    filter: brightness(120%);
+}
 /* Grid card */
 .card {
     display: flex;
@@ -115,18 +126,31 @@ a {
     display: inline;
 }
 
+
 /* Testimonials */
 #testimonials {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 40px;
+    background-image: url("./img/bg-quotes.png");
+    background-repeat: no-repeat;
+    padding-top: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* Testimonal card */
 .test-card {
     background: var(--dark-blue-testimonial-bg);
-    padding: 20px;
+    padding: 35px 25px 20px 25px;
+    border-radius: 5px;
+}
+.test-card p{
+    font-size: 0.85rem;
+    line-height: 17px;
+    opacity: 0.7;
+    margin-bottom: 20px;
 }
 /* Profile */
 .profile {
@@ -135,13 +159,151 @@ a {
 }
 
 .profile img {
-    width: 30px;
+    width: 25px;
     height: auto;
     border-radius: 50%;
 }
 .name {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
+.name p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 1;
+    margin-bottom: 0;
+}
+.name label {
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+
+/* Get early access */
+#access {
+    background: var(--dark-blue-testimonial-bg);
+    padding-top: 40px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 50px;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 3px 1px 2px 2px rgba(0, 0, 0, 0.2);
+}
+#access h1 {
+    text-align: center;
+}
+#access p {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+/* Form */
+.action .btn {
+    color: var(--white);
+    padding: 13px 35px;
+    outline: none;
+    border: none;
+}
+.action .btn:focus {
+    outline: none;
+}
+#button.btn:hover {
+    cursor: pointer;
+}
+/* Email section */
+.email {
+    background: var(--white);
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 30px;
+    width: 100%;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+}
+
+/* Alert message */
+#alert-msg {
+    font-size: 0.9rem;
+    color: var(--light-red);
+    margin-top: 5px;
+    transform: translateX(-120%);
+    visibility: hidden;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-blue-footer-bg);
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.location, .phone-email div {
+    display: flex;
+    align-items: center;
+}
+.location img {
+    margin-right: 10px;
+}
+.phone-email img {
+    margin-right: 10px;
+}
+
+/* Footer list */
+.footer-list {
+    list-style: none;
+    width: 80px;
+}
+.footer-list li {
+    margin-bottom: 15px;  
+}
+.footer-list li a {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+}
+.footer-list li a:hover {
+    font-weight: bold;
+}
+
+/* Social list */
+.social-icons {
+    width: 30%;
+}
+.social-icons img {
+    max-width: 10px;
+    height: auto;
+    fill: var(--white);
+}
+.social-list {
+    list-style: none;
+    color: var(--white);
+    display: flex;
+}
+.social-list li {
+    margin-left: 5px;
+    margin-right: 5px;
+    /* border: 1px solid white;
+    border-radius: 50%; */
+    
+}
+.social-list li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border: 1px solid white;
+    border-radius: 50%;
+}
+.social-list li a:hover {
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
 }
 
 /* Desktop */
@@ -230,6 +392,7 @@ a {
         border-bottom: 1px var(--cyan) solid;
         line-height: 25px;
         margin-top: 20px;
+        font-family: 'Open Sans', sans-serif;
     }
     #how-fylo-works img{
         margin: auto;
@@ -242,6 +405,95 @@ a {
     }
     #how-fylo-works:hover > img {
         filter: grayscale(100%) brightness(100%) saturate(0%) contrast(200%);
+    }
+
+    /* Get early access */
+    #access {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left: 50px;
+        padding-right: 50px;
+        max-width: 60%;
+        transform: translateY(40%);
+    }
+    #access p {
+        display: inline-block;
+        width: 90%;
+    }
+
+    /* Form */
+    .action {
+        display: flex;
+        width: 100%;
+    }
+    .action #button {
+        margin-left: 30px;
+    }
+
+    /* Footer */
+    footer {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+    /* Footer logo box */
+    #footer-logo-container {
+        margin-bottom: 30px;
+    }
+
+    /* Box container all elements under the logo */
+    #inner-footer {
+        display: flex;
+        flex-direction: row;
+        /* justify-content: space-between;
+        align-items: center; */
+    }
+
+    /* Fylo box */
+    .fylo {
+        display: flex;
+        flex-direction: column;
+        max-width: 60%;
+    }
+    /* Footer */
+    #footer-logo {
+        max-width: 15%;
+        height: auto;
+        display: flex;
+    }
+    /* Contact box */
+    .contact {
+        display: flex;
+    }
+    /* Location */
+    .location {
+        display: flex;
+        align-items: flex-start;
+        max-width: 50%;
+        margin-right: 70px;
+    }
+    /* Margin bottom 15px for desktop only */
+    .margin-bottom15 {
+        margin-bottom: 15px;
+    }
+
+    .about-us {
+        /* background-color: green; */
+        width: 500px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .contact-us {
+        /* background-color: red; */
+        display: flex;
+        width: 300px;
+        justify-content: flex-end;
+    }
+
+    .social-icons {
+        /* background-color: greenyellow; */
+        display: flex;
+        justify-content: flex-end;
     }
 
 }
@@ -357,6 +609,96 @@ a {
         border-bottom: 1px var(--cyan) solid;
         line-height: 25px;
         margin-top: 20px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    #how-fylo-works img {
+        margin: auto;
+        vertical-align: middle; 
+        display: inline-block;
+    }
+
+    /* Testimonials */
+    #testimonials {
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+        background-image: url("./img/bg-quotes.png");
+        background-size: 10%;
+        background-position: 8px 0px;
+        padding-top: 22px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Get early access */
+    #access {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        transform: translateY(50%);
+        margin-top: 0;
+    }
+
+    /* Form */
+    .action .btn {
+        padding: 13px auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+    /* Alert message */
+    #alert-msg {
+        font-size: 0.9rem;
+        color: var(--light-red);
+        margin-top: 10px;
+        transform: translateX(0);
+        /* visibility: hidden; */
+    }
+
+    /* Footer */
+    footer {
+        padding-top: 250px;
+        padding-bottom: 40px;
+    }
+
+    #footer-logo-container {
+        margin-bottom: 50px;
+    }
+
+    .location {
+        display: flex;
+        align-items: flex-start;
+    }
+    .location img {
+        margin-right: 25px;
+    }
+    .location p {
+        font-size: 1.1rem;
+        line-height: 20px;
+    }
+    .phone-email img {
+        margin-right: 20px;
+    }
+    .phone-email div {
+        margin-top: 20px;
+    }
+
+    /* Footer list */
+    .footer-list li a{
+        font-size: 1.1rem;
+    }
+
+    /* About us box */
+    .about-us {
+        margin-top: 80px;
+        margin-bottom: 50px;
+    }
+
+    /* Social media icons */
+    .social-icons {
+        margin: auto;
+        margin-top: 80px;
     }
 
 }
