@@ -639,6 +639,7 @@ footer {
         padding-right: 20px;
         transform: translateY(50%);
         margin-top: 0;
+        width: 500px;
     }
 
     /* Form */
